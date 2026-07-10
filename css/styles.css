@@ -66,8 +66,286 @@
 }
 
 body {
-    font-family: var('Inter', sans-serif);
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
 }
+
+/* Debut section header */
+
+
+/* Style de base pour TOUS les boutons du site */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--font-size-small);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: var(--color-dark);
+}
+
+
+.site-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;           
+    padding: var(--spacing-sm) var(--spacing-xl);
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;                  
+}
+
+.site-header .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.site-header .logo img {
+    height: 32px;                 
+    width: auto;
+}
+
+.site-header .logo p {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #ffffff;                
+    font-size: var(--font-size-h3);
+}
+
+/* Liens de navigation */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);         
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+    opacity: 1;
+}
+
+
+/* HERO : Grande bannière d'accueil  */
+.hero {
+    background-image: linear-gradient(
+        to right, 
+        rgba(20, 33, 61, 0.85) 40%, 
+        rgba(20, 33, 61, 0.4) 100%
+    ), url('../assets/images/hero-bg.jpeg'); 
+    
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;             
+    
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+ 
+    padding: var(--spacing-xl) var(--spacing-xl) 0 var(--spacing-xl);
+}
+
+
+.hero .eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #60a5fa;                
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Titre Principal H1 */
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;              
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    max-width: 700px;         
+    margin-bottom: var(--spacing-md);
+}
+
+.hero h1 span {
+    color: #93c5fd;       
+}
+
+/* Description du Hero */
+.hero-description {
+    font-size: var(--font-size-body);
+    color: var(--color-text-light-muted);
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);    
+}
+
+/* RESPONSIVE HEADER */
+@media (max-width: 768px) {
+    
+    .site-header {
+        
+        padding: var(--spacing-sm) 1rem;
+        flex-wrap: wrap; 
+        gap: var(--spacing-xs); 
+    }
+
+    
+    .site-header .logo p {
+        font-size: 1.1rem;
+    }
+    
+    .site-header .logo img {
+        height: 24px; 
+    }
+
+
+    .main-nav ul {
+        display: flex;
+        gap: 0.5rem; 
+        justify-content: center;
+    }
+
+   
+    .main-nav a {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+    
+   
+    .site-header .btn {
+        padding: 0.4rem 0.8rem; 
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        flex-direction: column;  
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;         
+        gap: 0.5rem;
+    }
+
+    .site-header .btn {
+        display: inline-flex;     
+        width: fit-content;
+    }
+}
+
+/* BANDEAU AVANTAGES  */
+.advantages {
+    background-color: var(--color-dark-secondary); 
+    padding: var(--spacing-sm) var(--spacing-xl);  
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.advantages ul {
+    display: flex;                 
+    justify-content: space-around; 
+    align-items: center;          
+    list-style: none;            
+    max-width: var(--container-width);
+    margin: 0 auto;                
+    gap: var(--spacing-md);
+}
+
+.advantages li {
+    display: flex;               
+    align-items: center;           
+    gap: var(--spacing-sm);      
+}
+
+
+.advantages li img {
+    width: 24px;                  
+    height: 24px;
+    object-fit: contain;
+   
+    filter: brightness(0) invert(1) sepia(1) saturate(1000%) hue-rotate(190deg); 
+}
+
+.advantages li p {
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+
+.advantages li p span {
+    color: var(--color-text-light-muted);
+    font-size: 0.75rem;        
+    font-weight: 400;              
+    display: inline-block;
+    margin-top: 2px;
+}
+
+
+@media (max-width: 768px) {
+    .advantages {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .advantages ul {
+        flex-direction: column;    
+        align-items: flex-start;  
+        gap: var(--spacing-sm);
+    }
+}
+
+
+/* Fin section header */
+
+
 
 .catalogue {
   padding: var(--spacing-xl) var(--spacing-lg);
